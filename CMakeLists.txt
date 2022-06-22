@@ -43,15 +43,14 @@ set(srcs
     "common/esp_modbus_master_serial.c"
     "common/esp_modbus_slave_serial.c")
 
-set(include_dirs common/include)
+set(include_dirs common/include modbus/include port serial_slave/modbus_controller tcp_slave/modbus_controller)
 
-set(priv_include_dirs common port modbus modbus/ascii modbus/functions
-                      modbus/rtu modbus/tcp modbus/include)
+set(priv_include_dirs common modbus modbus/ascii modbus/functions
+                      modbus/rtu modbus/tcp)
 
-list(APPEND priv_include_dirs serial_slave/port serial_slave/modbus_controller
+list(APPEND priv_include_dirs serial_slave/port 
      serial_master/port serial_master/modbus_controller
-     tcp_slave/port tcp_slave/modbus_controller
-     tcp_master/port tcp_master/modbus_controller)
+     tcp_slave/port tcp_master/port tcp_master/modbus_controller)
 
 add_prefix(srcs "${CMAKE_CURRENT_LIST_DIR}/freemodbus/" ${srcs})
 add_prefix(include_dirs "${CMAKE_CURRENT_LIST_DIR}/freemodbus/" ${include_dirs})

@@ -27,5 +27,9 @@
  *     - ESP_ERR_NO_MEM Parameter error
  */
 esp_err_t mbc_tcp_slave_create(void** handler);
+void mbc_tcp_set_discrete_callback(void *handler);
+void mbc_tcp_set_input_callback(void *handler);
+void mbc_tcp_set_holding_callback(void *handler);
+void mbc_tcp_set_coils_callback(void *handler);
 
 #endif // _MODBUS_TCP_CONTROLLER_SLAVE

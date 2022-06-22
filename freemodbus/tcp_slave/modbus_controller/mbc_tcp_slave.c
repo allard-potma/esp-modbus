@@ -215,4 +215,24 @@ esp_err_t mbc_tcp_slave_create(void** handler)
     return ESP_OK;
 }
 
+void mbc_tcp_set_discrete_callback(void *handler)
+{
+	 mbs_interface_ptr->slave_reg_cb_discrete = handler;
+}
+
+void mbc_tcp_set_input_callback(void *handler)
+{
+	mbs_interface_ptr->slave_reg_cb_input = handler;
+}
+
+void mbc_tcp_set_holding_callback(void *handler)
+{
+	mbs_interface_ptr->slave_reg_cb_holding = handler;
+}
+
+void mbc_tcp_set_coils_callback(void *handler)
+{
+	mbs_interface_ptr->slave_reg_cb_coils = handler;
+}
+
 #endif //#if MB_TCP_ENABLED
